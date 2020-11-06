@@ -10,12 +10,16 @@
 //! with the principal data structures of the plonk library.
 //!
 
+#[cfg(feature = "std")]
 pub use crate::circuit_builder::{Circuit, CircuitErrors, PublicInput};
+#[cfg(feature = "std")]
 pub use crate::commitment_scheme::kzg10::{
     key::{CommitKey, OpeningKey},
     PublicParameters,
 };
+#[cfg(feature = "std")]
 pub use crate::constraint_system::{StandardComposer, Variable};
+#[cfg(feature = "std")]
 pub use crate::proof_system::{
     widget::{ProverKey, VerifierKey},
     Proof, Prover, Verifier,
@@ -28,6 +32,7 @@ pub use dusk_bls12_381::Scalar as BlsScalar;
 pub use dusk_jubjub::Fr as JubJubScalar;
 
 /// Collection of errors that the library exposes/uses.
+#[cfg(feature = "std")]
 pub mod plonk_errors {
     pub use crate::commitment_scheme::kzg10::errors::KZG10Errors;
     pub use crate::constraint_system::cs_errors::PreProcessingError;

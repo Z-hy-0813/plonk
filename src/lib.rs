@@ -39,6 +39,8 @@
 //!
 //! If you want to see library usage examples, please check:
 //! [https://github.com/dusk-network/plonk/tree/v0.1.0/examples](https://github.com/dusk-network/plonk/tree/v0.1.0/examples)
+
+#![cfg_attr(not(feature = "std"), no_std)]
 // Bitshift/Bitwise ops are allowed to gain performance.
 #![allow(clippy::suspicious_arithmetic_impl)]
 // Some structs do not have AddAssign or MulAssign impl.
@@ -55,21 +57,33 @@
 #![deny(unsafe_code)]
 
 #[macro_use]
+#[cfg(feature = "std")]
 mod macros;
 
-mod bit_iterator;
-pub mod circuit_builder;
-pub mod commitment_scheme;
-pub mod constraint_system;
-pub mod fft;
-mod permutation;
 pub mod prelude;
+
+#[cfg(feature = "std")]
+mod bit_iterator;
+#[cfg(feature = "std")]
+pub mod circuit_builder;
+#[cfg(feature = "std")]
+pub mod commitment_scheme;
+#[cfg(feature = "std")]
+pub mod constraint_system;
+#[cfg(feature = "std")]
+pub mod fft;
+#[cfg(feature = "std")]
+mod permutation;
+#[cfg(feature = "std")]
 pub mod proof_system;
+#[cfg(feature = "std")]
 mod serialisation;
+#[cfg(feature = "std")]
 pub mod transcript;
+#[cfg(feature = "std")]
 mod util;
 
-#[cfg(feature = "nightly")]
+#[cfg(all(feature = "nightly", feature = "std"))]
 #[doc(include = "../docs/notes-intro.md")]
 pub mod notes {
     #[cfg(feature = "nightly")]
