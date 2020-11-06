@@ -29,8 +29,8 @@ dusk-jubjub = { git = "https://github.com/dusk-network/jubjub", branch = "vlopes
 itertools = "0.9.0"
 rand_chacha = "0.2"
 rayon = "1.3.0"
-anyhow = "1.0.32"
-thiserror = "1.0"
+anyhow = { version = "1.0", optional = true }
+thiserror = { version = "1.0", optional = true }
 serde = { version = "1.0", optional = true }
 
 [dev-dependencies]
@@ -45,4 +45,4 @@ nightly = []
 trace = []
 trace-print = ["trace"]
 canon = ["dusk-bls12_381/canon", "dusk-jubjub/canon"]
-std = ["dusk-bls12_381/default", "dusk-jubjub/default", "merlin", "rand", "serde"]
+std = ["dusk-bls12_381/default", "dusk-jubjub/default", "merlin", "rand", "serde", "anyhow", "thiserror"]
