@@ -22,7 +22,7 @@ edition = "2018"
 
 [dependencies]
 merlin = { version = "2.0.0", optional = true }
-rand = "0.7.2"
+rand = { version = "0.7", optional = true }
 rand_core = { version = "0.5", default-features = false }
 dusk-bls12_381 = { git = "https://github.com/dusk-network/bls12_381", branch = "vlope11/scalar-no-std", default-features = false }
 dusk-jubjub = { git = "https://github.com/dusk-network/jubjub", branch = "vlopes11/no-std-scalars",  default-features = false }
@@ -45,4 +45,4 @@ nightly = []
 trace = []
 trace-print = ["trace"]
 canon = ["dusk-bls12_381/canon", "dusk-jubjub/canon"]
-std = ["dusk-bls12_381/default", "dusk-jubjub/default", "merlin"]
+std = ["dusk-bls12_381/default", "dusk-jubjub/default", "merlin", "rand"]
